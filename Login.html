@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transparent Login Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('loginbg.jpg'); /* Replace with your image */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-container {
+      background-color: rgba(255, 255, 255, 0); /* Fully transparent */
+      padding: 30px;
+      border: 2px solid white;
+      border-radius: 10px;
+      width: 300px;
+      color: white;
+    }
+
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: white;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 8px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border: 1px solid white;
+      border-radius: 5px;
+      color: white;
+    }
+
+    .form-group input::placeholder {
+      color: #f0f0f0;
+    }
+
+    .login-button {
+      width: 100%;
+      padding: 10px;
+      background-color: rgba(76, 175, 80, 0.8);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .login-button:hover {
+      background-color: rgba(69, 160, 73, 0.9);
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter username" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter email" required />
+      </div>
+      <button type="submit" class="login-button">Login</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent form from submitting
+
+      const username = document.getElementById('username').value.trim();
+      const email = document.getElementById('email').value.trim();
+
+      if (!username || !email) {
+        alert("Please fill in both username and email.");
+      } else if (!email.includes('@') || !email.includes('.')) {
+        alert("Please enter a valid email address.");
+      } else {
+        alert("Login successful!\nUsername: " + username + "\nEmail: " + email);
+        // You can proceed with form submission here if needed
+        // this.submit(); 
+      }
+    });
+  </script>
+</body>
+</html>
